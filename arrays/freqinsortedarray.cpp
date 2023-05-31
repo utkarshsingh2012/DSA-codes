@@ -2,14 +2,20 @@
 using namespace std;
 
 void freq(int arr[], int n){
-  for(int i = 0; i<n; i++){
-    for(int j = i; j<n; j++){
-      if(arr[i] != arr[j])
-      {
-        cout<<"freq of"<<arr[i]<<"="<<(j-i+1)<<endl;
-      }
+  int f = 1, i = 1;
+  while(i<n)
+  {
+    while(i<n && arr[i] == arr[i-1])
+    {
+      f++;
+      i++;
     }
+    cout<<arr[i-1]<<" "<<f<<endl;
+    i++;
+    f=1;
   }
+  if(n == 1 || arr[n-1] != arr[n-2])
+    cout<<arr[n-1]<<" "<<"1";
 }
 
 int main(){
